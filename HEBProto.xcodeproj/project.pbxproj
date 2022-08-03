@@ -8,17 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		1D6DAA3B2899719700ADA7A3 /* HEBProtoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA3A2899719700ADA7A3 /* HEBProtoApp.swift */; };
-		1D6DAA3D2899719700ADA7A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA3C2899719700ADA7A3 /* ContentView.swift */; };
 		1D6DAA3F2899719A00ADA7A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6DAA3E2899719A00ADA7A3 /* Assets.xcassets */; };
 		1D6DAA422899719A00ADA7A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6DAA412899719A00ADA7A3 /* Preview Assets.xcassets */; };
+		1D6DAA4A2899788600ADA7A3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6DAA492899788600ADA7A3 /* Launch Screen.storyboard */; };
+		1D6DAA51289980DD00ADA7A3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA50289980DD00ADA7A3 /* MainView.swift */; };
+		1D6DAA532899822600ADA7A3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA522899822600ADA7A3 /* MainViewModel.swift */; };
+		1D6DAA552899826B00ADA7A3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA542899826B00ADA7A3 /* MainCoordinator.swift */; };
+		1D6DAA582899A54400ADA7A3 /* HEBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA572899A54400ADA7A3 /* HEBButton.swift */; };
+		1D6DAA5D2899B30800ADA7A3 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA5C2899B30800ADA7A3 /* CategoryCell.swift */; };
+		1D6DAA5F2899BA3D00ADA7A3 /* HeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA5E2899BA3D00ADA7A3 /* HeroCell.swift */; };
+		1D6DAA612899C1B300ADA7A3 /* Color+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA602899C1B300ADA7A3 /* Color+extensions.swift */; };
+		1D6DAA632899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA622899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift */; };
+		1D6DAA672899EE7500ADA7A3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA662899EE7500ADA7A3 /* Request.swift */; };
+		1D6DAA6A2899F65700ADA7A3 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA692899F65700ADA7A3 /* RequestManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D6DAA372899719700ADA7A3 /* HEBProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HEBProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6DAA3A2899719700ADA7A3 /* HEBProtoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEBProtoApp.swift; sourceTree = "<group>"; };
-		1D6DAA3C2899719700ADA7A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1D6DAA3E2899719A00ADA7A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D6DAA412899719A00ADA7A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1D6DAA482899745200ADA7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1D6DAA492899788600ADA7A3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1D6DAA50289980DD00ADA7A3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1D6DAA522899822600ADA7A3 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		1D6DAA542899826B00ADA7A3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		1D6DAA572899A54400ADA7A3 /* HEBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEBButton.swift; sourceTree = "<group>"; };
+		1D6DAA5C2899B30800ADA7A3 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		1D6DAA5E2899BA3D00ADA7A3 /* HeroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCell.swift; sourceTree = "<group>"; };
+		1D6DAA602899C1B300ADA7A3 /* Color+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extensions.swift"; sourceTree = "<group>"; };
+		1D6DAA622899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomHeaderView.swift; sourceTree = "<group>"; };
+		1D6DAA662899EE7500ADA7A3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIConfig.xcconfig; sourceTree = "<group>"; };
+		1D6DAA692899F65700ADA7A3 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +73,16 @@
 		1D6DAA392899719700ADA7A3 /* HEBProto */ = {
 			isa = PBXGroup;
 			children = (
+				1D6DAA5A2899B0E100ADA7A3 /* Models */,
+				1D6DAA4E28997FFD00ADA7A3 /* Networking */,
+				1D6DAA4D28997FE200ADA7A3 /* Extensions */,
+				1D6DAA4C28997FDC00ADA7A3 /* Managers */,
+				1D6DAA4B28997FCA00ADA7A3 /* Views */,
+				1D6DAA482899745200ADA7A3 /* Info.plist */,
 				1D6DAA3A2899719700ADA7A3 /* HEBProtoApp.swift */,
-				1D6DAA3C2899719700ADA7A3 /* ContentView.swift */,
 				1D6DAA3E2899719A00ADA7A3 /* Assets.xcassets */,
 				1D6DAA402899719A00ADA7A3 /* Preview Content */,
+				1D6DAA492899788600ADA7A3 /* Launch Screen.storyboard */,
 			);
 			path = HEBProto;
 			sourceTree = "<group>";
@@ -65,6 +93,76 @@
 				1D6DAA412899719A00ADA7A3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1D6DAA4B28997FCA00ADA7A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DAA4F289980AB00ADA7A3 /* Main */,
+				1D6DAA562899A52900ADA7A3 /* Shared */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1D6DAA4C28997FDC00ADA7A3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1D6DAA4D28997FE200ADA7A3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DAA602899C1B300ADA7A3 /* Color+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1D6DAA4E28997FFD00ADA7A3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DAA662899EE7500ADA7A3 /* Request.swift */,
+				1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */,
+				1D6DAA692899F65700ADA7A3 /* RequestManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1D6DAA4F289980AB00ADA7A3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DAA50289980DD00ADA7A3 /* MainView.swift */,
+				1D6DAA522899822600ADA7A3 /* MainViewModel.swift */,
+				1D6DAA542899826B00ADA7A3 /* MainCoordinator.swift */,
+				1D6DAA5B2899B2D800ADA7A3 /* Cells */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1D6DAA562899A52900ADA7A3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DAA572899A54400ADA7A3 /* HEBButton.swift */,
+				1D6DAA622899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1D6DAA5A2899B0E100ADA7A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1D6DAA5B2899B2D800ADA7A3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DAA5C2899B30800ADA7A3 /* CategoryCell.swift */,
+				1D6DAA5E2899BA3D00ADA7A3 /* HeroCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6DAA4A2899788600ADA7A3 /* Launch Screen.storyboard in Resources */,
 				1D6DAA422899719A00ADA7A3 /* Preview Assets.xcassets in Resources */,
 				1D6DAA3F2899719A00ADA7A3 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +236,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D6DAA3D2899719700ADA7A3 /* ContentView.swift in Sources */,
+				1D6DAA51289980DD00ADA7A3 /* MainView.swift in Sources */,
 				1D6DAA3B2899719700ADA7A3 /* HEBProtoApp.swift in Sources */,
+				1D6DAA552899826B00ADA7A3 /* MainCoordinator.swift in Sources */,
+				1D6DAA6A2899F65700ADA7A3 /* RequestManager.swift in Sources */,
+				1D6DAA612899C1B300ADA7A3 /* Color+extensions.swift in Sources */,
+				1D6DAA672899EE7500ADA7A3 /* Request.swift in Sources */,
+				1D6DAA532899822600ADA7A3 /* MainViewModel.swift in Sources */,
+				1D6DAA582899A54400ADA7A3 /* HEBButton.swift in Sources */,
+				1D6DAA5F2899BA3D00ADA7A3 /* HeroCell.swift in Sources */,
+				1D6DAA5D2899B30800ADA7A3 /* CategoryCell.swift in Sources */,
+				1D6DAA632899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +255,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6DAA432899719A00ADA7A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -207,6 +316,7 @@
 		};
 		1D6DAA442899719A00ADA7A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -269,9 +379,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HEBProto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = HEBProto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -297,9 +409,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HEBProto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = HEBProto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

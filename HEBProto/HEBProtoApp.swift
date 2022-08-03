@@ -11,7 +11,10 @@ import SwiftUI
 struct HEBProtoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewModel = MainViewModel(title: "I'm ALIVE!!!")
+            let coordinator = MainCoordinator(viewModel: viewModel)
+            
+            coordinator.start()
         }
     }
 }
