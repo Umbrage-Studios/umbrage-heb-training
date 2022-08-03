@@ -27,7 +27,7 @@ protocol Network {
 
 // MARK: - Errors
 
-enum BettorVisionNetworkError: Error {
+enum HEBNetworkError: Error {
     case invalidResponse(Data)
     case networkUnavailable
     case invalidRequest
@@ -64,8 +64,6 @@ final class RequestManager: Network {
 
     // MARK: - Network Request Methods
     func send<T: Decodable>(_ request: Request) async throws -> T {
-//        guard Connectivity.shared.isConnected else { throw BettorVisionNetworkError.networkUnavailable }
-
         var urlRequest = request.urlRequest
         if request.isRefreshable {
             let validToken = try await AuthManager.validToken()
@@ -77,17 +75,11 @@ final class RequestManager: Network {
         let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
         
         guard (200..<300).contains(statusCode) else {
-//            let decoder = JSONDecoder()
-//
-//            if let fieldError = try? decoder.decode(FieldError.self, from: data) {
-//                throw BettorVisionNetworkError.fieldError(fieldError)
-//            }
-
-            throw BettorVisionNetworkError.invalidRequest
+            throw HEBNetworkError.invalidRequest
         }
         
         guard let result = try? JSONDecoder().decode(T.self, from: data) else {
-            throw BettorVisionNetworkError.invalidResponse(data)
+            throw HEBNetworkError.invalidResponse(data)
         }
 
         return result
@@ -100,7 +92,7 @@ final class RequestManager: Network {
 // Used for dependency injection in view previews
 struct MockNetwork: Network {
     func send<T: Decodable>(_ request: Request) async throws -> T {
-        throw BettorVisionNetworkError.invalidRequest
+        throw HEBNetworkError.invalidRequest
     }
 }
 

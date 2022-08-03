@@ -21,6 +21,7 @@
 		1D6DAA632899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA622899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift */; };
 		1D6DAA672899EE7500ADA7A3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA662899EE7500ADA7A3 /* Request.swift */; };
 		1D6DAA6A2899F65700ADA7A3 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA692899F65700ADA7A3 /* RequestManager.swift */; };
+		1D6DAA76289B018100ADA7A3 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA75289B018100ADA7A3 /* TokenManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		1D6DAA662899EE7500ADA7A3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIConfig.xcconfig; sourceTree = "<group>"; };
 		1D6DAA692899F65700ADA7A3 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		1D6DAA75289B018100ADA7A3 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				1D6DAA662899EE7500ADA7A3 /* Request.swift */,
-				1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */,
 				1D6DAA692899F65700ADA7A3 /* RequestManager.swift */,
+				1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */,
+				1D6DAA75289B018100ADA7A3 /* TokenManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6DAA51289980DD00ADA7A3 /* MainView.swift in Sources */,
+				1D6DAA76289B018100ADA7A3 /* TokenManager.swift in Sources */,
 				1D6DAA3B2899719700ADA7A3 /* HEBProtoApp.swift in Sources */,
 				1D6DAA552899826B00ADA7A3 /* MainCoordinator.swift in Sources */,
 				1D6DAA6A2899F65700ADA7A3 /* RequestManager.swift in Sources */,
