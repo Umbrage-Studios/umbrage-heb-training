@@ -15,7 +15,7 @@ struct ProductResponse: Decodable {
     }
 }
 
-struct Product: Decodable {
+struct Product: Decodable, Identifiable {
     let id: String
     let upc: String
     let aisleLocations: [ProductAisleLocation]

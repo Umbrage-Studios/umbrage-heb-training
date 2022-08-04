@@ -24,6 +24,9 @@ struct SearchView: View {
             
             ScrollView(showsIndicators: false) {
                 // Search results here
+                
+                // if we tap on an item here in the list
+                // coodinator.send(.productDetails(product)
             }
             
             NavigationLink(
@@ -33,6 +36,9 @@ struct SearchView: View {
             )
         }
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $viewModel.selectedProduct) {
+            coordinator.view(for: .productDetails($0))
+        }
     }
     
     private func searchButtonAction() {
