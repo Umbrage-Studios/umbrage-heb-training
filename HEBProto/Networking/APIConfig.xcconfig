@@ -2,8 +2,9 @@
 //  APIConfig.xcconfig
 //  HEBProto
 //
-//  Created by Steve Galbraith on 8/2/22.
+//  Created by Steve Galbraith on 8/3/22.
 //
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+KROGER_CLIENT_ID_KEY=myshopcartapp-fc63baf4895299da94f35ef716d3e280485154467665095189:xvebfS1QPWVPsHZ4wDkscpf7LXc1Imz6sWjCnOLR

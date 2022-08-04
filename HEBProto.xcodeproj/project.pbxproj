@@ -22,6 +22,11 @@
 		1D6DAA672899EE7500ADA7A3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA662899EE7500ADA7A3 /* Request.swift */; };
 		1D6DAA6A2899F65700ADA7A3 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA692899F65700ADA7A3 /* RequestManager.swift */; };
 		1D6DAA76289B018100ADA7A3 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA75289B018100ADA7A3 /* TokenManager.swift */; };
+		1D6DAA7B289B0F3700ADA7A3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA7A289B0F3700ADA7A3 /* Product.swift */; };
+		1D6DAA7E289B523300ADA7A3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA7D289B523300ADA7A3 /* SearchView.swift */; };
+		1D6DAA80289B524300ADA7A3 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA7F289B524300ADA7A3 /* SearchViewModel.swift */; };
+		1D6DAA82289B525200ADA7A3 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA81289B525200ADA7A3 /* SearchCoordinator.swift */; };
+		1D6DAA84289BFC0900ADA7A3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA83289BFC0900ADA7A3 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,9 +45,14 @@
 		1D6DAA602899C1B300ADA7A3 /* Color+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extensions.swift"; sourceTree = "<group>"; };
 		1D6DAA622899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomHeaderView.swift; sourceTree = "<group>"; };
 		1D6DAA662899EE7500ADA7A3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIConfig.xcconfig; sourceTree = "<group>"; };
 		1D6DAA692899F65700ADA7A3 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		1D6DAA75289B018100ADA7A3 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		1D6DAA79289B0E2500ADA7A3 /* APIConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIConfig.xcconfig; sourceTree = "<group>"; };
+		1D6DAA7A289B0F3700ADA7A3 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		1D6DAA7D289B523300ADA7A3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		1D6DAA7F289B524300ADA7A3 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		1D6DAA81289B525200ADA7A3 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		1D6DAA83289BFC0900ADA7A3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +110,7 @@
 		1D6DAA4B28997FCA00ADA7A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D6DAA7C289B522000ADA7A3 /* Search */,
 				1D6DAA4F289980AB00ADA7A3 /* Main */,
 				1D6DAA562899A52900ADA7A3 /* Shared */,
 			);
@@ -124,9 +135,9 @@
 		1D6DAA4E28997FFD00ADA7A3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1D6DAA79289B0E2500ADA7A3 /* APIConfig.xcconfig */,
 				1D6DAA662899EE7500ADA7A3 /* Request.swift */,
 				1D6DAA692899F65700ADA7A3 /* RequestManager.swift */,
-				1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */,
 				1D6DAA75289B018100ADA7A3 /* TokenManager.swift */,
 			);
 			path = Networking;
@@ -148,6 +159,7 @@
 			children = (
 				1D6DAA572899A54400ADA7A3 /* HEBButton.swift */,
 				1D6DAA622899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift */,
+				1D6DAA83289BFC0900ADA7A3 /* SearchBar.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -155,6 +167,7 @@
 		1D6DAA5A2899B0E100ADA7A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1D6DAA7A289B0F3700ADA7A3 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +179,16 @@
 				1D6DAA5E2899BA3D00ADA7A3 /* HeroCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		1D6DAA7C289B522000ADA7A3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DAA7D289B523300ADA7A3 /* SearchView.swift */,
+				1D6DAA7F289B524300ADA7A3 /* SearchViewModel.swift */,
+				1D6DAA81289B525200ADA7A3 /* SearchCoordinator.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,12 +268,17 @@
 				1D6DAA552899826B00ADA7A3 /* MainCoordinator.swift in Sources */,
 				1D6DAA6A2899F65700ADA7A3 /* RequestManager.swift in Sources */,
 				1D6DAA612899C1B300ADA7A3 /* Color+extensions.swift in Sources */,
+				1D6DAA80289B524300ADA7A3 /* SearchViewModel.swift in Sources */,
 				1D6DAA672899EE7500ADA7A3 /* Request.swift in Sources */,
 				1D6DAA532899822600ADA7A3 /* MainViewModel.swift in Sources */,
 				1D6DAA582899A54400ADA7A3 /* HEBButton.swift in Sources */,
 				1D6DAA5F2899BA3D00ADA7A3 /* HeroCell.swift in Sources */,
+				1D6DAA7E289B523300ADA7A3 /* SearchView.swift in Sources */,
+				1D6DAA82289B525200ADA7A3 /* SearchCoordinator.swift in Sources */,
 				1D6DAA5D2899B30800ADA7A3 /* CategoryCell.swift in Sources */,
 				1D6DAA632899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift in Sources */,
+				1D6DAA84289BFC0900ADA7A3 /* SearchBar.swift in Sources */,
+				1D6DAA7B289B0F3700ADA7A3 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +287,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6DAA432899719A00ADA7A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */;
+			baseConfigurationReference = 1D6DAA79289B0E2500ADA7A3 /* APIConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -320,7 +348,7 @@
 		};
 		1D6DAA442899719A00ADA7A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D6DAA682899EF8D00ADA7A3 /* APIConfig.xcconfig */;
+			baseConfigurationReference = 1D6DAA79289B0E2500ADA7A3 /* APIConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

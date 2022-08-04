@@ -13,15 +13,15 @@ final class TokenManager {
         static let authTokenKey = "HEBAuthToken"
         static let authTokenExiprationDate = "HEBAuthTokenExpirationDate"
     }
-    
+
     static let shared = TokenManager()
     private init() {}
-    
+
     var tokenExpiration: TimeInterval? {
         get {
             // Retrive the expiration time from UserDefaults
             guard let data = UserDefaults.standard.data(forKey: StorageKeys.authTokenExiprationDate) else { return nil }
-            
+
             return try? JSONDecoder().decode(TimeInterval.self, from: data)
         }
         set {
@@ -30,7 +30,7 @@ final class TokenManager {
             UserDefaults.standard.set(updatedTokenExpirationData, forKey: StorageKeys.authTokenExiprationDate)
         }
     }
-    
+
     // This is bad practice, we really should be storing tokens in Keychain or somewhere else
     var token: AuthToken? {
         get {
@@ -56,28 +56,28 @@ struct AuthToken: Codable {
         case tokenType = "token_type"
         case expiresIn = "expires_in"
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         accessToken = try container.decode(String.self, forKey: .accessToken)
         tokenType = try container.decode(String.self, forKey: .tokenType)
         expiresIn = try container.decode(Int.self, forKey: .expiresIn)
-        
+
         // Now that we have the properties set, we can set the expiration date based on the `expiresIn`
         setExpirationDate()
     }
-    
+
     var isValid: Bool {
         Date().timeIntervalSince1970 < expirationDateSecondsSince1970
     }
-    
+
     private var expirationDateSecondsSince1970: TimeInterval {
         // Refresh the token if we are within 5 seconds of expiration
         guard let expirationSecondsSince1970 = TokenManager.shared.tokenExpiration else { return Date().timeIntervalSince1970 - 5 }
             return expirationSecondsSince1970
     }
-    
+
     private func setExpirationDate() {
         // Only set the expiration the first time (if there is no saved token)
         // On refresh the expiration will be updated, but we don't need to update whenever we decode a token
@@ -88,5 +88,82 @@ struct AuthToken: Codable {
 
         // Set the token expiration time
         TokenManager.shared.tokenExpiration = expirationDate.timeIntervalSince1970
+    }
+}
+
+//{
+//    "id": "1",
+//    "name": "Susan Smith"
+//    "age": 23
+//    "email": "susan.smith@mail.com",
+//    "significant_other_id": 12,
+//    "home_address": {
+//        "house_number": "1234",
+//        "street": "Happy Lane",
+//        "city": "San Antonio",
+//        "state": "TX",
+//        "zip_code": "12345",
+//        "move_in_date": "2021-07-23"
+//    },
+//    "cool": true
+//}
+
+
+struct Person: Decodable, Identifiable {
+    let id: String
+    let name: String
+    let age: Int
+    let email: String
+    let significantOtherId: Int?
+    let address: Address
+    let isCool: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case age
+        case email
+        case significantOtherId = "significant_other_id"
+        case address = "home_address"
+        case isCool = "cool"
+    }
+}
+
+struct Address: Decodable {
+    let houseNumber: String
+    let street: String
+    let city: String
+    let state: String
+    let zipCode: String
+    let moveInDate: Date?
+
+    enum CodingKeys: String, CodingKey {
+        case houseNumber = "house_number"
+        case street
+        case city
+        case state
+        case zipCode = "zip_code"
+        case moveInDate = "move_in_date"
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        houseNumber = try container.decode(String.self, forKey: .houseNumber)
+        street = try container.decode(String.self, forKey: .street)
+        city = try container.decode(String.self, forKey: .city)
+        state = try container.decode(String.self, forKey: .state)
+        zipCode = try container.decode(String.self, forKey: .zipCode)
+
+        if zipCode.count != 5 {
+            throw HEBNetworkError.invalidRequest
+        }
+
+        let dateString = try container.decode(String.self, forKey: .moveInDate)
+
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        moveInDate = dateFormatter.date(from: dateString)
     }
 }

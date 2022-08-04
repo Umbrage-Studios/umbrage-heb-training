@@ -9,24 +9,22 @@ import Combine
 import Foundation
 
 final class MainViewModel: ObservableObject {
-    let title: String
     let shouldShowLogin = CurrentValueSubject<Bool, Never>(false)
+    let network: Network
     
-    init(title: String) {
-        self.title = title
-        
-        setupSubscriptions()
+    init(network: Network = RequestManager.shared) {
+        self.network = network
+
         requestKrogerAccess()
-    }
-    
-    private func setupSubscriptions() {
-        
     }
     
     private func requestKrogerAccess() {
         Task {
-            let authToken: AuthToken? = try? await RequestManager.shared.send(.krogerAuth)
+            let authToken: AuthToken? = try? await network.send(.krogerAuth)
             TokenManager.shared.token = authToken
+            
+            let response: ProductResponse = try await network.send(.productSearch(for: "apples"))
+            print(response.products)
         }
     }
 }

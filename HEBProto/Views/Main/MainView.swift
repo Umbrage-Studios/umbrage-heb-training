@@ -127,7 +127,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = MainViewModel(title: "Hello, HEB")
+        let viewModel = MainViewModel()
         let coordinator = MainCoordinator(viewModel: viewModel)
 
         coordinator.start()

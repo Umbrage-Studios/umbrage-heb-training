@@ -25,3 +25,16 @@ extension MainCoordinator {
 }
 
 // MARK: - Navigator
+
+extension MainCoordinator {
+//    enum Destination {
+//        case nextScreen
+//    }
+//    
+//    @ViewBuilder func view(for destination: Destination) -> some View {
+//        switch destination {
+//        case .nextScreen:
+//            let viewModel = NextViewModel(viewModel.network)
+//        }
+//    }
+}

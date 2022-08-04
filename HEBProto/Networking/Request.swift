@@ -8,24 +8,24 @@
 import Foundation
 
 enum APIService {
-    case krogerSignIn
+    case kroger
 
     var baseURL: String {
         switch self {
-        case .krogerSignIn: return "https://api.kroger.com"
+        case .kroger: return "https://api.kroger.com"
         }
     }
 
     var version: String? {
         switch self {
-        case .krogerSignIn: return "v1"
+        case .kroger: return "v1"
         }
     }
 
     var secret: String {
         var key: Secret.Key
         switch self {
-        case .krogerSignIn:
+        case .kroger:
             key = .krogerClientIDKey
         default:
             fatalError("Secret requested for service that does not have a secret")
@@ -37,11 +37,12 @@ enum APIService {
 
 enum Request {
     case krogerAuth
+    case productSearch(for: String)
 
-    var service: APIService {
+    private var service: APIService {
         switch self {
-        case .krogerAuth:
-            return .krogerSignIn
+        case .krogerAuth, .productSearch:
+            return .kroger
         }
     }
 
@@ -49,6 +50,8 @@ enum Request {
         switch self {
         case .krogerAuth:
             return .post
+        default:
+            return .get
         }
     }
 
@@ -57,12 +60,14 @@ enum Request {
         switch self {
         case .krogerAuth:
             path = "connect/oauth2/token"
+        case .productSearch:
+            path = "products"
         }
 
         guard !params.isEmpty else { return path }
 
-        let parameters = params.map { "\($0)=\($1)" }.joined(separator: "&")
-        return [path, parameters].joined(separator: "?")
+        let parameters = params.map { "\($0)=\($1)" }.joined(separator: "&") // "location=Texas&something_else=thing"
+        return [path, parameters].joined(separator: "?") // connect/oath2/token?location=Texas&something_else=thing
     }
 
     private var urlString: String {
@@ -90,9 +95,12 @@ enum Request {
     }
 
     private var params: [String: String] {
-        let params = [String: String]()
+        var params = [String: String]()
 
         switch self {
+        case .productSearch(let itemName):
+            params["filter.term"] = itemName
+            params["filter.locationId"] = "01400943"
         default:
             break
         }
@@ -104,13 +112,19 @@ enum Request {
         var headers = ["Content-Type" : "application/json"]
 
         switch service {
-        case .krogerSignIn:
-            guard let encodedID = service.secret.data(using: .utf8)?.base64EncodedString() else {
-                fatalError("COULD NOT ENCODE YAHOO AUTH CLIENT ID")
-            }
+        case .kroger:
+            switch self {
+            case .krogerAuth:
+                guard let encodedID = service.secret.data(using: .utf8)?.base64EncodedString() else {
+                    fatalError("COULD NOT ENCODE YAHOO AUTH CLIENT ID")
+                }
 
-            headers["Authorization"] = "Basic \(encodedID)"
-            headers["Content-Type"] = "application/x-www-form-urlencoded"
+                headers["Authorization"] = "Basic \(encodedID)"
+                headers["Content-Type"] = "application/x-www-form-urlencoded"
+            case .productSearch:
+                headers["Authorization"] = "Bearer \(TokenManager.shared.token?.accessToken ?? "")"
+                headers["Cache-Control"] = "no-cache"
+            }
         }
 
         return headers
@@ -125,7 +139,11 @@ enum Request {
 
             // The Kroger API is really picky and so we need to format it slightly differently from the other HTTP bodies
             return dictionary.map { "\($0.0)=\($0.1)" }.joined(separator: "&").data(using: .utf8)
+        default:
+            return nil
         }
+        
+//        return try? JSONSerialization.data(withJSONObject: dictionary, options: [.prettyPrinted])
     }
 
     /// Calls that have a refreshable token associated with them return `true`
@@ -141,6 +159,7 @@ extension Request: Equatable {
     var id: String {
         switch self {
         case .krogerAuth: return "krogerAuth"
+        case .productSearch(let item): return "productSearch-\(item)"
         }
     }
 

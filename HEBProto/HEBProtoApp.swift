@@ -11,7 +11,7 @@ import SwiftUI
 struct HEBProtoApp: App {
     var body: some Scene {
         WindowGroup {
-            let viewModel = MainViewModel(title: "I'm ALIVE!!!")
+            let viewModel = MainViewModel()
             let coordinator = MainCoordinator(viewModel: viewModel)
             
             coordinator.start()
