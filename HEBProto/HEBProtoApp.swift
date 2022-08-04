@@ -14,7 +14,9 @@ struct HEBProtoApp: App {
             let viewModel = MainViewModel()
             let coordinator = MainCoordinator(viewModel: viewModel)
             
-            coordinator.start()
+            NavigationView {
+                coordinator.start()
+            }
         }
     }
 }

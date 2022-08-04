@@ -27,6 +27,8 @@
 		1D6DAA80289B524300ADA7A3 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA7F289B524300ADA7A3 /* SearchViewModel.swift */; };
 		1D6DAA82289B525200ADA7A3 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA81289B525200ADA7A3 /* SearchCoordinator.swift */; };
 		1D6DAA84289BFC0900ADA7A3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA83289BFC0900ADA7A3 /* SearchBar.swift */; };
+		1D6DAA86289C307000ADA7A3 /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA85289C307000ADA7A3 /* ScanningViewController.swift */; };
+		1D6DAA8B289C41F400ADA7A3 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA8A289C41F400ADA7A3 /* ScanView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		1D6DAA7F289B524300ADA7A3 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		1D6DAA81289B525200ADA7A3 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		1D6DAA83289BFC0900ADA7A3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		1D6DAA85289C307000ADA7A3 /* ScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
+		1D6DAA8A289C41F400ADA7A3 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 		1D6DAA562899A52900ADA7A3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				1D6DAA87289C30A100ADA7A3 /* Scanning */,
 				1D6DAA572899A54400ADA7A3 /* HEBButton.swift */,
 				1D6DAA622899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift */,
 				1D6DAA83289BFC0900ADA7A3 /* SearchBar.swift */,
@@ -189,6 +194,15 @@
 				1D6DAA81289B525200ADA7A3 /* SearchCoordinator.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		1D6DAA87289C30A100ADA7A3 /* Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DAA8A289C41F400ADA7A3 /* ScanView.swift */,
+				1D6DAA85289C307000ADA7A3 /* ScanningViewController.swift */,
+			);
+			path = Scanning;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6DAA51289980DD00ADA7A3 /* MainView.swift in Sources */,
+				1D6DAA86289C307000ADA7A3 /* ScanningViewController.swift in Sources */,
 				1D6DAA76289B018100ADA7A3 /* TokenManager.swift in Sources */,
 				1D6DAA3B2899719700ADA7A3 /* HEBProtoApp.swift in Sources */,
 				1D6DAA552899826B00ADA7A3 /* MainCoordinator.swift in Sources */,
@@ -274,6 +289,7 @@
 				1D6DAA582899A54400ADA7A3 /* HEBButton.swift in Sources */,
 				1D6DAA5F2899BA3D00ADA7A3 /* HeroCell.swift in Sources */,
 				1D6DAA7E289B523300ADA7A3 /* SearchView.swift in Sources */,
+				1D6DAA8B289C41F400ADA7A3 /* ScanView.swift in Sources */,
 				1D6DAA82289B525200ADA7A3 /* SearchCoordinator.swift in Sources */,
 				1D6DAA5D2899B30800ADA7A3 /* CategoryCell.swift in Sources */,
 				1D6DAA632899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift in Sources */,

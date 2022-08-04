@@ -6,7 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 final class SearchViewModel: ObservableObject {
     @Published var searchText = ""
+    @Published var shouldScan = false
+    
+    var barcode: String?
 }

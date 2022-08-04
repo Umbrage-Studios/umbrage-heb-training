@@ -11,12 +11,23 @@ import Foundation
 final class MainViewModel: ObservableObject {
     let shouldShowLogin = CurrentValueSubject<Bool, Never>(false)
     let network: Network
+    @Published var shouldShowSearch = false
+    private var cancellables = Set<AnyCancellable>()
     
     init(network: Network = RequestManager.shared) {
         self.network = network
 
+//        setupSubscriptions()
         requestKrogerAccess()
     }
+    
+//    private func setupSubscriptions() {
+//        $shouldShowSearch
+//            .sink { isShowing in
+//                print("SEARCH IS SHOWING: \(isShowing)")
+//            }
+//            .store(in: &cancellables)
+//    }
     
     private func requestKrogerAccess() {
         Task {

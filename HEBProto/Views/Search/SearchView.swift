@@ -25,7 +25,14 @@ struct SearchView: View {
             ScrollView(showsIndicators: false) {
                 // Search results here
             }
+            
+            NavigationLink(
+                isActive: $viewModel.shouldScan,
+                destination: { coordinator.view(for: .scan) },
+                label: { EmptyView() }
+            )
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func searchButtonAction() {

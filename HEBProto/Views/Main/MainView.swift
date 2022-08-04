@@ -86,7 +86,11 @@ struct MainView: View {
             }
             
             VStack {
-                RoundedBottomHeaderView()
+                RoundedBottomHeaderView(
+                    searchAction: {
+                        coordinator.send(.searchButtonTapped)
+                    }
+                )
                 
                 Spacer()
             }
@@ -113,16 +117,22 @@ struct MainView: View {
                     .padding(.trailing)
                 }
             }
+            
+            NavigationLink(
+                isActive: $viewModel.shouldShowSearch,
+                destination: { coordinator.view(for: .search) },
+                label: { EmptyView() }
+            )
         }
         .mask(LinearGradient(
             gradient: Gradient(colors: [.black, .black, .black, .black, .black, .black, .black, .black, .clear]),
             startPoint: .top,
             endPoint: .bottom)
-        )
+            )
+        .navigationTitle("")
+        .navigationBarHidden(true)
         .ignoresSafeArea(edges: [.top, .bottom])
     }
-    
-    
 }
 
 struct MainView_Previews: PreviewProvider {

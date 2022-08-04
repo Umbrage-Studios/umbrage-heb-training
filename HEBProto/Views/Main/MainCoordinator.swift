@@ -24,17 +24,35 @@ extension MainCoordinator {
     }
 }
 
+// MARK: - Event Handler
+
+extension MainCoordinator {
+    enum Event {
+        case searchButtonTapped
+    }
+    
+    func send(_ event: Event) {
+        switch event {
+        case .searchButtonTapped:
+            viewModel.shouldShowSearch.toggle()
+        }
+    }
+}
+
 // MARK: - Navigator
 
 extension MainCoordinator {
-//    enum Destination {
-//        case nextScreen
-//    }
-//    
-//    @ViewBuilder func view(for destination: Destination) -> some View {
-//        switch destination {
-//        case .nextScreen:
-//            let viewModel = NextViewModel(viewModel.network)
-//        }
-//    }
+    enum Destination {
+        case search
+    }
+    
+    @ViewBuilder func view(for destination: Destination) -> some View {
+        switch destination {
+        case .search:
+            let viewModel = SearchViewModel()
+            let coordinator = SearchCoordinator(viewModel: viewModel)
+            
+            coordinator.start()
+        }
+    }
 }

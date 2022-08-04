@@ -14,6 +14,17 @@ struct SearchBar: View {
     
     var body: some View {
         ZStack {
+            VStack {
+                Spacer()
+                
+                Divider()
+                    .foregroundColor(undelineColor)
+                    .frame(height: isSearching ? 2 : 1)
+                    .padding(.bottom, isSearching ? 0 : 1)
+                    .padding(.horizontal)
+            }
+            .frame(height: 45)
+            
             TextField(
                 text: $text,
                 prompt: Text("Search").foregroundColor(.rock),
@@ -48,18 +59,7 @@ struct SearchBar: View {
                     }
                 )
             }
-            .padding([.leading, .vertical])
-            
-            VStack {
-                Spacer()
-                
-                Divider()
-                    .foregroundColor(undelineColor)
-                    .frame(height: isSearching ? 2 : 1)
-                    .padding(.bottom, isSearching ? 0 : 1)
-                    .padding(.horizontal)
-            }
-            .frame(height: 60)
+            .padding([.leading])
         }
     }
     

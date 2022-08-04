@@ -32,7 +32,31 @@ extension SearchCoordinator {
         case .clearButtonTapped:
             viewModel.searchText = ""
         case .scanButtonTapped:
-            print("SCAN BUTTON TAPPED!")
+            viewModel.shouldScan = true
         }
+    }
+}
+
+extension SearchCoordinator {
+    enum Destination {
+        case scan
+    }
+    
+    @ViewBuilder func view(for destination: Destination) -> some View {
+        switch destination {
+        case .scan:
+            scanView
+        }
+    }
+    
+    private var scanView: ScanView {
+        let scanViewModel = ScanViewModel()
+        
+        // Subscribe
+        scanViewModel.scanResult
+            .sink { [weak self] in self?.viewModel.barcode = $0 }
+            .store(in: &scanViewModel.cancellables)
+        
+        return ScanView(viewModel: scanViewModel)
     }
 }

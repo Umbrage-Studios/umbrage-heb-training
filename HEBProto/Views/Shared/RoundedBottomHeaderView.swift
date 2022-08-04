@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RoundedBottomHeaderView: View {
+    let searchAction: () -> Void
+    
     var body: some View {
         ZStack {
             Image("Blueberries")
@@ -16,7 +18,6 @@ struct RoundedBottomHeaderView: View {
                 .frame(maxWidth: .infinity, maxHeight: 214)
                 .contentShape(RoundedBottomHeaderShape())
                 .clipShape(RoundedBottomHeaderShape())
-                .overlay(RoundedBottomHeaderShape().stroke(Color.pink, lineWidth: 1))
                 .frame(maxWidth: .infinity)
             
             // MARK: H-E-B Logo
@@ -41,7 +42,7 @@ struct RoundedBottomHeaderView: View {
                     Spacer()
                     
                     Button(
-                        action: { print("Search Tapped") },
+                        action: searchAction,
                         label: {
                             Image(systemName: "magnifyingglass")
                                 .font(.title2)
@@ -83,7 +84,7 @@ struct RoundedBottomHeaderView: View {
 struct RoundedBottomHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
-            RoundedBottomHeaderView()
+            RoundedBottomHeaderView {}
         }
         .ignoresSafeArea(edges: [.top])
     }
