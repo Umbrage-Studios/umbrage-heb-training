@@ -24,7 +24,7 @@ extension SearchCoordinator {
 extension SearchCoordinator {
     enum Event {
         case clearButtonTapped
-        case productDetails(Product)
+        case productDetailsTapped(for: Product)
         case scanButtonTapped
     }
     
@@ -32,7 +32,7 @@ extension SearchCoordinator {
         switch event {
         case .clearButtonTapped:
             viewModel.searchText = ""
-        case .productDetails(let product):
+        case .productDetailsTapped(let product):
             viewModel.selectedProduct = product
         case .scanButtonTapped:
             viewModel.shouldScan = true
@@ -42,14 +42,17 @@ extension SearchCoordinator {
 
 extension SearchCoordinator {
     enum Destination {
-        case productDetails(Product)
+        case productDetails(for: Product)
         case scan
     }
     
     @ViewBuilder func view(for destination: Destination) -> some View {
         switch destination {
         case .productDetails(let product):
-            Text("SHOWING \(product.description)")
+            let viewModel = ProductDetailsViewModel(product: product)
+            let coordinator = ProductDetailsCoordinator(viewModel: viewModel)
+            
+            coordinator.start()
         case .scan:
             scanView
         }

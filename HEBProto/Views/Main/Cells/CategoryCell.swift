@@ -17,6 +17,7 @@ struct CategoryCell: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 220)
+                .cornerRadius(16)
             
             Text(title)
                 .font(.headline)

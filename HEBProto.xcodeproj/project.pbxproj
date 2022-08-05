@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D37160E289C5F17002B97E9 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37160D289C5F17002B97E9 /* ProductDetailsView.swift */; };
+		1D371610289C5F22002B97E9 /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37160F289C5F22002B97E9 /* ProductDetailsViewModel.swift */; };
+		1D371612289C5F30002B97E9 /* ProductDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D371611289C5F30002B97E9 /* ProductDetailsCoordinator.swift */; };
+		1D371614289D4F7D002B97E9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D371613289D4F7D002B97E9 /* ProductCell.swift */; };
 		1D6DAA3B2899719700ADA7A3 /* HEBProtoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6DAA3A2899719700ADA7A3 /* HEBProtoApp.swift */; };
 		1D6DAA3F2899719A00ADA7A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6DAA3E2899719A00ADA7A3 /* Assets.xcassets */; };
 		1D6DAA422899719A00ADA7A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6DAA412899719A00ADA7A3 /* Preview Assets.xcassets */; };
@@ -32,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D37160D289C5F17002B97E9 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		1D37160F289C5F22002B97E9 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
+		1D371611289C5F30002B97E9 /* ProductDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCoordinator.swift; sourceTree = "<group>"; };
+		1D371613289D4F7D002B97E9 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		1D6DAA372899719700ADA7A3 /* HEBProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HEBProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6DAA3A2899719700ADA7A3 /* HEBProtoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEBProtoApp.swift; sourceTree = "<group>"; };
 		1D6DAA3E2899719A00ADA7A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +78,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D37160C289C5F07002B97E9 /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1D37160D289C5F17002B97E9 /* ProductDetailsView.swift */,
+				1D37160F289C5F22002B97E9 /* ProductDetailsViewModel.swift */,
+				1D371611289C5F30002B97E9 /* ProductDetailsCoordinator.swift */,
+			);
+			path = ProductDetails;
+			sourceTree = "<group>";
+		};
 		1D6DAA2E2899719700ADA7A3 = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +132,9 @@
 		1D6DAA4B28997FCA00ADA7A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1D6DAA7C289B522000ADA7A3 /* Search */,
+				1D37160C289C5F07002B97E9 /* ProductDetails */,
 				1D6DAA4F289980AB00ADA7A3 /* Main */,
+				1D6DAA7C289B522000ADA7A3 /* Search */,
 				1D6DAA562899A52900ADA7A3 /* Shared */,
 			);
 			path = Views;
@@ -192,6 +211,7 @@
 				1D6DAA7D289B523300ADA7A3 /* SearchView.swift */,
 				1D6DAA7F289B524300ADA7A3 /* SearchViewModel.swift */,
 				1D6DAA81289B525200ADA7A3 /* SearchCoordinator.swift */,
+				1D371613289D4F7D002B97E9 /* ProductCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -278,6 +298,8 @@
 			files = (
 				1D6DAA51289980DD00ADA7A3 /* MainView.swift in Sources */,
 				1D6DAA86289C307000ADA7A3 /* ScanningViewController.swift in Sources */,
+				1D371610289C5F22002B97E9 /* ProductDetailsViewModel.swift in Sources */,
+				1D371612289C5F30002B97E9 /* ProductDetailsCoordinator.swift in Sources */,
 				1D6DAA76289B018100ADA7A3 /* TokenManager.swift in Sources */,
 				1D6DAA3B2899719700ADA7A3 /* HEBProtoApp.swift in Sources */,
 				1D6DAA552899826B00ADA7A3 /* MainCoordinator.swift in Sources */,
@@ -285,6 +307,7 @@
 				1D6DAA612899C1B300ADA7A3 /* Color+extensions.swift in Sources */,
 				1D6DAA80289B524300ADA7A3 /* SearchViewModel.swift in Sources */,
 				1D6DAA672899EE7500ADA7A3 /* Request.swift in Sources */,
+				1D37160E289C5F17002B97E9 /* ProductDetailsView.swift in Sources */,
 				1D6DAA532899822600ADA7A3 /* MainViewModel.swift in Sources */,
 				1D6DAA582899A54400ADA7A3 /* HEBButton.swift in Sources */,
 				1D6DAA5F2899BA3D00ADA7A3 /* HeroCell.swift in Sources */,
@@ -293,6 +316,7 @@
 				1D6DAA82289B525200ADA7A3 /* SearchCoordinator.swift in Sources */,
 				1D6DAA5D2899B30800ADA7A3 /* CategoryCell.swift in Sources */,
 				1D6DAA632899C2FC00ADA7A3 /* RoundedBottomHeaderView.swift in Sources */,
+				1D371614289D4F7D002B97E9 /* ProductCell.swift in Sources */,
 				1D6DAA84289BFC0900ADA7A3 /* SearchBar.swift in Sources */,
 				1D6DAA7B289B0F3700ADA7A3 /* Product.swift in Sources */,
 			);
@@ -425,6 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HEBProto/Preview Content\"";
+				DEVELOPMENT_TEAM = 5T4K83D9PG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HEBProto/Info.plist;
@@ -440,7 +465,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heb.proto.HEBProto;
+				PRODUCT_BUNDLE_IDENTIFIER = com.steveo.HEBProto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -456,6 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HEBProto/Preview Content\"";
+				DEVELOPMENT_TEAM = 5T4K83D9PG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HEBProto/Info.plist;
@@ -471,7 +497,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heb.proto.HEBProto;
+				PRODUCT_BUNDLE_IDENTIFIER = com.steveo.HEBProto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

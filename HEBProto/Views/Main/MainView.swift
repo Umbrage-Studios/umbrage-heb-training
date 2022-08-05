@@ -45,7 +45,7 @@ struct MainView: View {
 
                             CategoryCell(
                                 title: "Fresh cut favorites",
-                                imageName: "Fresh Cut Image"
+                                imageName: "Fruit"
                             )
                         }
                         .padding(.horizontal)
@@ -77,11 +77,15 @@ struct MainView: View {
                             
                             CategoryCell(
                                 title: "Stock up on snack essentials",
-                                imageName: "Snacking Image"
+                                imageName: "Snacks Image"
                             )
                         }
                         .padding(.horizontal)
                     }
+                    
+                    Rectangle()
+                        .frame(height: 60)
+                        .foregroundColor(.systemBackground)
                 }
             }
             

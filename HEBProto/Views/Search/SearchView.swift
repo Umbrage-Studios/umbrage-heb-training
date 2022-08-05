@@ -11,33 +11,42 @@ import Combine
 struct SearchView: View {
     @ObservedObject var viewModel: SearchViewModel
     let coordinator: SearchCoordinator
+    private let columns = [
+        GridItem(.adaptive(minimum: 180))
+    ]
     
     @FocusState private var isSearching: Bool
     
     var body: some View {
-        VStack {
-            SearchBar(
-                text: $viewModel.searchText,
-                isSearching: _isSearching,
-                trailingButtonAction: searchButtonAction
-            )
-            
-            ScrollView(showsIndicators: false) {
-                // Search results here
+        GeometryReader { reader in
+            VStack {
+                SearchBar(
+                    text: $viewModel.searchText,
+                    isSearching: _isSearching,
+                    trailingButtonAction: searchButtonAction
+                )
                 
-                // if we tap on an item here in the list
-                // coodinator.send(.productDetails(product)
+                ScrollView(showsIndicators: false) {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(viewModel.products) { product in
+                            ProductCell(product: product, proxy: reader)
+                                .onTapGesture {
+                                    coordinator.send(.productDetailsTapped(for: product))
+                                }
+                        }
+                    }
+                }
+                
+                NavigationLink(
+                    isActive: $viewModel.shouldScan,
+                    destination: { coordinator.view(for: .scan) },
+                    label: { EmptyView() }
+                )
             }
-            
-            NavigationLink(
-                isActive: $viewModel.shouldScan,
-                destination: { coordinator.view(for: .scan) },
-                label: { EmptyView() }
-            )
         }
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $viewModel.selectedProduct) {
-            coordinator.view(for: .productDetails($0))
+            coordinator.view(for: .productDetails(for: $0))
         }
     }
     

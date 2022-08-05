@@ -12,11 +12,15 @@ final class SearchViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var shouldScan = false
     @Published var selectedProduct: Product?
+    @Published var products = [Product]()
     private var cancellables = Set<AnyCancellable>()
+    private let network: Network
     
     let barcode = PassthroughSubject<String, Never>()
     
-    init() {
+    init(network: Network = RequestManager.shared) {
+        self.network = network
+
         setupSubscriptions()
     }
     
@@ -27,12 +31,36 @@ final class SearchViewModel: ObservableObject {
                 self?.searchForProduct(with: code)
             }
             .store(in: &cancellables)
+        
+        $searchText
+            .filter { !$0.isEmpty }
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .sink { [weak self] in self?.searchForProducts(with: $0) }
+            .store(in: &cancellables)
+        
+        $searchText
+            .filter { $0.isEmpty }
+            .sink { [weak self] _ in self?.products = [] }
+            .store(in: &cancellables)
+    }
+    
+    private func searchForProducts(with term: String) {
+        Task {
+            let response: ProductsResponse = try await network.send(.productSearch(for: term))
+            
+            await MainActor.run {
+                products = response.products
+            }
+        }
     }
     
     private func searchForProduct(with code: String) {
-        // Network request to find the product
-        
-        // once the product is returned, show the sheet for product details
-//        selectedProduct = product
+        Task {
+            let response: ProductResponse = try await network.send(.product(code))
+            
+            await MainActor.run {
+                selectedProduct = response.product
+            }
+        }
     }
 }

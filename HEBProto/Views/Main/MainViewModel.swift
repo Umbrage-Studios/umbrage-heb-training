@@ -17,25 +17,13 @@ final class MainViewModel: ObservableObject {
     init(network: Network = RequestManager.shared) {
         self.network = network
 
-//        setupSubscriptions()
         requestKrogerAccess()
     }
-    
-//    private func setupSubscriptions() {
-//        $shouldShowSearch
-//            .sink { isShowing in
-//                print("SEARCH IS SHOWING: \(isShowing)")
-//            }
-//            .store(in: &cancellables)
-//    }
     
     private func requestKrogerAccess() {
         Task {
             let authToken: AuthToken? = try? await network.send(.krogerAuth)
             TokenManager.shared.token = authToken
-            
-            let response: ProductResponse = try await network.send(.productSearch(for: "apples"))
-            print(response.products)
         }
     }
 }

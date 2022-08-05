@@ -38,10 +38,11 @@ enum APIService {
 enum Request {
     case krogerAuth
     case productSearch(for: String)
+    case product(String)
 
     private var service: APIService {
         switch self {
-        case .krogerAuth, .productSearch:
+        case .krogerAuth, .productSearch, .product:
             return .kroger
         }
     }
@@ -62,6 +63,8 @@ enum Request {
             path = "connect/oauth2/token"
         case .productSearch:
             path = "products"
+        case .product(let id):
+            path = "products/\(id)"
         }
 
         guard !params.isEmpty else { return path }
@@ -99,7 +102,9 @@ enum Request {
 
         switch self {
         case .productSearch(let itemName):
-            params["filter.term"] = itemName
+            params["filter.term"] = itemName.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+            params["filter.locationId"] = "01400943"
+        case .product:
             params["filter.locationId"] = "01400943"
         default:
             break
@@ -124,6 +129,8 @@ enum Request {
             case .productSearch:
                 headers["Authorization"] = "Bearer \(TokenManager.shared.token?.accessToken ?? "")"
                 headers["Cache-Control"] = "no-cache"
+            case .product:
+                headers["Authorization"] = "Bearer \(TokenManager.shared.token?.accessToken ?? "")"
             }
         }
 
@@ -160,6 +167,7 @@ extension Request: Equatable {
         switch self {
         case .krogerAuth: return "krogerAuth"
         case .productSearch(let item): return "productSearch-\(item)"
+        case .product(let id): return "products-\(id)"
         }
     }
 

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Fresh Cut Image.png",
+      "filename" : "Snacks Image.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Fresh Cut Image@2x.png",
+      "filename" : "Snacks Image@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Fresh Cut Image@3x.png",
+      "filename" : "Snacks Image@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

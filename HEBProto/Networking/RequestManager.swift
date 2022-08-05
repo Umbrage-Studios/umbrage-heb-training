@@ -100,10 +100,6 @@ private actor AuthManager {
         let task = Task { () -> String in
             defer { refreshTask = nil }
 
-            guard let token = TokenManager.shared.token else {
-                throw AuthError.missingToken
-            }
-
             let refreshedToken: AuthToken = try await RequestManager.shared.send(.krogerAuth)
 
             TokenManager.shared.token = refreshedToken

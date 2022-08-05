@@ -7,11 +7,19 @@
 
 import Foundation
 
-struct ProductResponse: Decodable {
+struct ProductsResponse: Decodable {
     let products: [Product]
     
     enum CodingKeys: String, CodingKey {
         case products = "data"
+    }
+}
+
+struct ProductResponse: Decodable {
+    let product: Product
+    
+    enum CodingKeys: String, CodingKey {
+        case product = "data"
     }
 }
 
@@ -34,6 +42,41 @@ struct Product: Decodable, Identifiable {
         case images
         case items
         case temperature
+    }
+    
+    var imageURL: URL? {
+        for image in images {
+            if let rightSizedImage = image.images.first(where: { $0.size == .medium }) {
+                return URL(string: rightSizedImage.url)
+            }
+        }
+        
+        return nil
+    }
+    
+    var price: String {
+        guard let item = items.first(where: { $0.price.bestPrice != 0 }) else { return " " }
+        
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .currency
+        
+        let bestPrice = Double(item.price.bestPrice) / 100
+        guard let formattedPrice = formatter.string(from: bestPrice as NSNumber) else { return " " }
+        
+        return formattedPrice
+    }
+    
+    var locationDescription: String {
+        guard let location = aisleLocations.first(where: { !$0.description.isEmpty }) else { return " " }
+        
+        if location.description.lowercased() == "produce" {
+            return "In Poduce"
+        } else if location.number != "0" {
+            return "Aisle \(location.number)"
+        } else {
+            return " "
+        }
     }
 }
 
@@ -180,6 +223,11 @@ struct Price: Decodable {
         let promoPerUnitEstimate = (try? container.decode(Double.self, forKey: .promoPerUnitEstimateInCents)) ?? 0
         promoPerUnitEstimateInCents = Int(promoPerUnitEstimate * 100)
     }
+    
+    var bestPrice: Int {
+        guard promoInCents != 0 else { return regularInCents }
+        return [regularInCents, promoInCents].min() ?? 0
+    }
 }
 
 enum ProductPriceUnit: String, Decodable {
@@ -266,3 +314,105 @@ enum TemperatureIndicator: String, Decodable {
 //        "heatSensitive": false
 //    }
 //}
+
+extension Product {
+    static var example: Product {
+        Product(
+            id: "1",
+            upc: "1234567890",
+            aisleLocations: [
+                ProductAisleLocation(
+                    bayNumber: nil,
+                    description: "Produce",
+                    number: "0",
+                    numberOfFacings: nil,
+                    sequenceNumber: nil,
+                    side: nil,
+                    shelfNumber: nil,
+                    shelfPositionInBay: nil
+                )
+            ],
+            brand: "H-E-B",
+            description: "Something extra special from H-E-B",
+            images: [
+                ProductImageContainer(
+                    perspective: .front,
+                    isFeatured: false,
+                    images: [
+                        ProductImage(size: .large, url: "https://www.kroger.com/product/images/medium/front/0001111014902")
+                    ]
+                )
+            ],
+            items: [
+                ProductItem(
+                    id: "1",
+                    isFavorite: false,
+                    fulfillmentOptions: [
+                        .curbside,
+                        .delivery,
+                        .inStore,
+                        .shipToHome
+                    ],
+                    size: "3 oz",
+                    price: Price(
+                        regularInCents: 399,
+                        promoInCents: 359,
+                        regularPerUnitEstimateInCents: 0,
+                        promoPerUnitEstimateInCents: 0
+                    ),
+                    nationalPrice: Price(
+                        regularInCents: 415,
+                        promoInCents: 445,
+                        regularPerUnitEstimateInCents: 0,
+                        promoPerUnitEstimateInCents: 0
+                    ),
+                    soldBy: .weight
+                )
+            ],
+            temperature: ProductTemperature(indicator: .ambient, isHeatSensitive: false)
+        )
+    }
+}
+
+extension ProductImageContainer {
+    init(perspective: ProductPerspective, isFeatured: Bool, images: [ProductImage]) {
+        self.perspective = perspective
+        self.isFeatured = isFeatured
+        self.images = images
+    }
+}
+
+
+extension ProductItem {
+    init(
+        id: String,
+        isFavorite: Bool,
+        fulfillmentOptions: [ProductFulfillmentOption],
+        size: String,
+        price: Price,
+        nationalPrice: Price,
+        soldBy: ProductPriceUnit
+    ) {
+        self.id = id
+        self.isFavorite = isFavorite
+        self.fulfillmentOptions = fulfillmentOptions
+        self.size = size
+        self.price = price
+        self.nationalPrice = nationalPrice
+        self.soldBy = soldBy
+    }
+}
+
+extension Price {
+    init(
+        regularInCents: Int,
+        promoInCents: Int,
+        regularPerUnitEstimateInCents: Int,
+        promoPerUnitEstimateInCents: Int
+    ) {
+        self.regularInCents = regularInCents
+        self.promoInCents = promoInCents
+        self.regularPerUnitEstimateInCents = regularPerUnitEstimateInCents
+        self.promoPerUnitEstimateInCents = promoPerUnitEstimateInCents
+    }
+}
